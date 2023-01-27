@@ -29,8 +29,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Chengkangzai\\LaravelSocialShareLinks\\": "src",
-            "Chengkangzai\\LaravelSocialShareLinks\\Database\\Factories\\": "database/factories"
+            "Chengkangzai\\LaravelSocialShareLinks\\": "src"
         }
     },
     "autoload-dev": {
