@@ -2,9 +2,9 @@
 
 namespace Chengkangzai\LaravelSocialShareLinks;
 
+use Chengkangzai\LaravelSocialShareLinks\Commands\LaravelSocialShareLinksCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use Chengkangzai\LaravelSocialShareLinks\Commands\LaravelSocialShareLinksCommand;
 
 class LaravelSocialShareLinksServiceProvider extends PackageServiceProvider
 {
@@ -17,9 +17,6 @@ class LaravelSocialShareLinksServiceProvider extends PackageServiceProvider
          */
         $package
             ->name('laravel-social-share-links')
-            ->hasConfigFile()
-            ->hasViews()
-            ->hasMigration('create_laravel-social-share-links_table')
-            ->hasCommand(LaravelSocialShareLinksCommand::class);
+            ->hasConfigFile();
     }
 }

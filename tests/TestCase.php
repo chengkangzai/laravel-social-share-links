@@ -2,9 +2,9 @@
 
 namespace Chengkangzai\LaravelSocialShareLinks\Tests;
 
+use Chengkangzai\LaravelSocialShareLinks\LaravelSocialShareLinksServiceProvider;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Orchestra\Testbench\TestCase as Orchestra;
-use Chengkangzai\LaravelSocialShareLinks\LaravelSocialShareLinksServiceProvider;
 
 class TestCase extends Orchestra
 {
