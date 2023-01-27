@@ -1,12 +1,12 @@
 <?php
 
-namespace VendorName\Skeleton\Commands;
+namespace Chengkangzai\LaravelSocialShareLinks\Commands;
 
 use Illuminate\Console\Command;
 
-class SkeletonCommand extends Command
+class LaravelSocialShareLinksCommand extends Command
 {
-    public $signature = 'skeleton';
+    public $signature = 'laravel-social-share-links';
 
     public $description = 'My command';
 
