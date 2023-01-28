@@ -15,9 +15,33 @@ composer require chengkangzai/laravel-social-share-links
 
 ## Usage
 
+#### Generate social share link for Single Social Media
 ```php
-$laravelSocialShareLinks = new Chengkangzai\LaravelSocialShareLinks();
-echo $laravelSocialShareLinks->echoPhrase('Hello, Chengkangzai!');
+use Chengkangzai\LaravelSocialShareLinks\Enums\SocialMediaType;
+use Chengkangzai\LaravelSocialShareLinks\SocialShareLinksBuilder;
+
+$builder = new SocialShareLinksBuilder();
+$link = $builder->url($url) // $url is optional, if not passed, it will use the current url
+    ->facebook()
+    ->build();
+
+$facebookLink = $link[SocialMediaType::Facebook];
+```
+
+#### Generate social share links for Multiple Social Media
+```php
+use Chengkangzai\LaravelSocialShareLinks\Enums\SocialMediaType;
+use Chengkangzai\LaravelSocialShareLinks\SocialShareLinksBuilder;
+
+$builder = new SocialShareLinksBuilder();
+$link = $builder->url($url)
+    ->twitter()
+    ->text('Hello World')
+    ->hashtags(['laravel', 'social', 'share', 'links'])
+    ->via('chengkangzai')
+    ->build();
+
+$twitterLink = $link[SocialMediaType::Twitter];
 ```
 
 ## Testing
