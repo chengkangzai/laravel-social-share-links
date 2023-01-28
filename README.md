@@ -44,6 +44,23 @@ $link = $builder->url($url)
 $twitterLink = $link[SocialMediaType::Twitter];
 ```
 
+#### Generate social share links for multiple social media with `for` method
+```php
+use Chengkangzai\LaravelSocialShareLinks\Enums\SocialMediaType;
+use Chengkangzai\LaravelSocialShareLinks\SocialShareLinksBuilder;
+
+$builder = new SocialShareLinksBuilder();
+$links = $builder->url($url)
+        ->for([
+            SocialMediaType::Facebook,
+            SocialMediaType::Twitter,
+        ])
+        ->build();
+
+$facebookLink = $links[SocialMediaType::Facebook];
+$twitterLink = $links[SocialMediaType::Twitter];
+```
+
 ## Testing
 
 ```bash
