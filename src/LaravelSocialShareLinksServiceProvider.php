@@ -2,7 +2,6 @@
 
 namespace Chengkangzai\LaravelSocialShareLinks;
 
-use Chengkangzai\LaravelSocialShareLinks\Commands\LaravelSocialShareLinksCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 

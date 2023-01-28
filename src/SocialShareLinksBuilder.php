@@ -78,7 +78,6 @@ class SocialShareLinksBuilder
 
     public function for(array $socials): static
     {
-        //check if socials exits from the SocialMediaType enum
         collect(SocialMediaType::cases())
             ->each(function ($social) use ($socials) {
                 collect($socials)->contains($social) ?: throw new Exception("{$social} is not a valid social media");
@@ -179,7 +178,7 @@ class SocialShareLinksBuilder
         return $this->output;
     }
 
-    public function getSocialLink(SocialMediaType $social): string
+    protected function getSocialLink(SocialMediaType $social): string
     {
         $url = $this->url;
 
