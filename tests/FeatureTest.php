@@ -9,9 +9,10 @@ it('can build social share link for facebook', function () {
 
     $builder = new SocialShareLinksBuilder();
     $link = $builder->url($url)
-        ->getSocialLink($social);
+        ->facebook()
+        ->build();
 
-    expect($link)
+    expect($link[$social->name])
         ->toBe('https://www.facebook.com/sharer/sharer.php?u=https://www.google.com');
 });
 
@@ -26,13 +27,14 @@ it('can build social share link for twitter', function () {
 
     $builder = new SocialShareLinksBuilder();
     $link = $builder->url($url)
+        ->twitter()
         ->text($properties['text'])
         ->hashtags($properties['hashtags'])
         ->via($properties['via'])
-        ->getSocialLink($social);
+        ->build();
 
     $expected = 'https://twitter.com/intent/tweet?url=https://www.google.com&via=laravel&hashtags=laravel,social,share,links';
-    expect($link)
+    expect($link[$social->name])
         ->toBe($expected);
 });
 
@@ -45,11 +47,12 @@ it('can build social share link for whatsapp', function () {
 
     $builder = new SocialShareLinksBuilder();
     $link = $builder->url($url)
+        ->whatsapp()
         ->text($properties['text'])
-        ->getSocialLink($social);
+        ->build();
 
     $expected = 'https://wa.me/?text=Hello World https://www.google.com';
-    expect($link)
+    expect($link[$social->name])
         ->toBe($expected);
 });
 
@@ -63,12 +66,13 @@ it('can build social share link for telegram', function () {
 
     $builder = new SocialShareLinksBuilder();
     $link = $builder->url($url)
+        ->telegram()
         ->text($properties['text'])
         ->phoneNumber($properties['to'])
-        ->getSocialLink($social);
+        ->build();
 
     $expected = 'https://t.me/share/url?url=https://www.google.com&text=Hello World&to=123456789';
-    expect($link)
+    expect($link[$social->name])
         ->toBe($expected);
 });
 
@@ -78,9 +82,10 @@ it('can build social share link for linkedin', function () {
 
     $builder = new SocialShareLinksBuilder();
     $link = $builder->url($url)
-        ->getSocialLink($social);
+        ->linkedIn()
+        ->build();
 
-    expect($link)
+    expect($link[$social->name])
         ->toBe('https://www.linkedin.com/sharing/share-offsite/?url=https://www.google.com');
 });
 
@@ -94,12 +99,13 @@ it('can build social share link for sms', function () {
 
     $builder = new SocialShareLinksBuilder();
     $link = $builder->url($url)
+        ->sms()
         ->body($properties['body'])
         ->phoneNumber($properties['phone_number'])
-        ->getSocialLink($social);
+        ->build();
 
     $expected = 'sms:123456789?body=Hello World https://www.google.com';
-    expect($link)
+    expect($link[$social->name])
         ->toBe($expected);
 });
 
@@ -114,13 +120,14 @@ it('can build social share link for email', function () {
 
     $builder = new SocialShareLinksBuilder();
     $link = $builder->url($url)
+        ->email()
         ->title($properties['title'])
         ->body($properties['body'])
         ->emailRecipient($properties['email_recipient'])
-        ->getSocialLink($social);
+        ->build();
 
     $expected = 'mailto:example@example.com?subject=Hello World&body=Hello World https://www.google.com';
-    expect($link)
+    expect($link[$social->name])
         ->toBe($expected);
 });
 
