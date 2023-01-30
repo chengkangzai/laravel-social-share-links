@@ -27,6 +27,17 @@ $link = $builder->url($url) // $url is optional, if not passed, it will use the 
 
 $facebookLink = $link[SocialMediaType::Facebook];
 ```
+#### If you prefer to call it statically 
+```php
+use Chengkangzai\LaravelSocialShareLinks\Enums\SocialMediaType;
+use Chengkangzai\LaravelSocialShareLinks\SocialShareLinksBuilder;
+
+$link = SocialShareLinksBuilder::make($url) // $url is optional, if not passed, it will use the current url
+    ->facebook()
+    ->build();
+
+$facebookLink = $link[SocialMediaType::Facebook];
+```
 
 #### Generate social share links for Multiple Social Media
 ```php

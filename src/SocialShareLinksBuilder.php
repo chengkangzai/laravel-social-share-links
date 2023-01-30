@@ -22,6 +22,11 @@ class SocialShareLinksBuilder
         return $this;
     }
 
+    public static function make(?string $url = null): static
+    {
+        return (new static())->url($url);
+    }
+
     /**
      * ----------------------------------------------
      * Social Media
