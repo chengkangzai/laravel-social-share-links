@@ -3,6 +3,19 @@
 use Chengkangzai\LaravelSocialShareLinks\Enums\SocialMediaType;
 use Chengkangzai\LaravelSocialShareLinks\SocialShareLinksBuilder;
 
+it('can build social share link for facebook with make()', function () {
+    $url = 'https://www.google.com';
+    $social = SocialMediaType::Facebook;
+
+    $link = SocialShareLinksBuilder::make()
+        ->url($url)
+        ->facebook()
+        ->build();
+
+    expect($link[$social->name])
+        ->toBe('https://www.facebook.com/sharer/sharer.php?u=https://www.google.com');
+});
+
 it('can build social share link for facebook', function () {
     $url = 'https://www.google.com';
     $social = SocialMediaType::Facebook;
