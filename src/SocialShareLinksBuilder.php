@@ -17,7 +17,9 @@ class SocialShareLinksBuilder
 
     public function url(?string $url = null): self
     {
-        $this->url = $url ?? request()->getUri();
+        $url = $url ?? request()->getUri();
+        
+        $this->url - urlencode($url);
 
         return $this;
     }
